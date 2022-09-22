@@ -57,6 +57,6 @@ class TaskRepository
 
 	public function delete(string $id)
 	{
-		$id = $this->tasks->deleteQuery(['_id'=>$id]);
+		$this->tasks->deleteQuery(['_id'=>$id]);
 	}
 }
