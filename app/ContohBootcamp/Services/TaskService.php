@@ -56,4 +56,46 @@ class TaskService {
 		$id = $this->taskRepository->save( $editTask);
 		return $id;
 	}
+
+	public function deleteTask(string $taskId)
+	{
+		$this->taskRepository->delete($taskId);
+	}
+
+	public function assignTask(array $editTask, string $assigned = null)
+	{
+		$editTask['assigned'] = $assigned;
+
+		$id = $this->taskRepository->save( $editTask);
+		return $id;
+	}
+
+	public function createSubtask(array $editTask, array $subtask)
+	{
+		if(isset($subtask))
+		{
+			$editTask['subtasks'][] = $subtask;
+		}
+
+		$id = $this->taskRepository->save( $editTask);
+		return $id;
+	}
+
+	public function deleteSubtask(array $editTask, string $subtaskId)
+	{
+		if(isset($subtaskId))
+		{
+			$editTask['subtasks'] = array_filter($editTask['subtasks'], function($subtask) use($subtaskId) {
+				if($subtask['_id'] == $subtaskId)
+				{
+					return false;
+				} else {
+					return true;
+				}
+			});
+		}
+
+		$id = $this->taskRepository->save( $editTask);
+		return $id;
+	}
 }
