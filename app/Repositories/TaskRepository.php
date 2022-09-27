@@ -1,5 +1,5 @@
 <?php
-namespace App\ContohBootcamp\Repositories;
+namespace App\Repositories;
 
 use App\Helpers\MongoModel;
 

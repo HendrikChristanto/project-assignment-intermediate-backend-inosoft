@@ -2,7 +2,7 @@
 
 namespace App\Http\Controller;
 
-use App\ContohBootcamp\Services\TaskService;
+use App\Services\TaskService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

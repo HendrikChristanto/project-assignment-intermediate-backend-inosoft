@@ -1,8 +1,8 @@
 <?php
 
-namespace App\ContohBootcamp\Services;
+namespace App\Services;
 
-use App\ContohBootcamp\Repositories\TaskRepository;
+use App\Repositories\TaskRepository;
 
 class TaskService {
 	private TaskRepository $taskRepository;
